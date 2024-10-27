@@ -7,9 +7,9 @@ const DATABASE_NAME = 'CRUD_API'
 const connectDB = async () => {
   try {
     await mongoose.connect(`mongodb://localhost/${DATABASE_NAME}`)
-    console.log(`CONNECTED TO MONGODB: ${DATABASE_NAME}`)
+    console.log(`\nCONNECTED TO MONGODB: ${DATABASE_NAME}\n`)
   } catch (error) {
-    debug(error)
+    debug('ERROR CONNECTING DATABASE', error)
   }
 }
 export default connectDB

@@ -30,7 +30,7 @@ const server = createServer(app)
  */
 
 // Connect database just before listening
-connectDB()
+await connectDB()
 
 server.listen(port)
 server.on('error', onError)
