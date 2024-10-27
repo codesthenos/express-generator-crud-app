@@ -7,8 +7,8 @@
 import { createServer } from 'node:http'
 
 import app from '../app.js'
-import connectDB from '../dbConnexion.js'
-import debug from '../debugFunction.js'
+import connectDB from '../lib/dbConnexion.js'
+import debug from '../lib/debugFunction.js'
 
 /**
  * Get port from environment and store in Express.

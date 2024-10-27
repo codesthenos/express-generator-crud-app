@@ -1,7 +1,8 @@
 import bcrypt from 'bcryptjs'
 
-import debug from '../debugFunction.js'
+import debug from '../lib/debugFunction.js'
 import User from '../models/user.model.js'
+import createAccessToken from '../lib/jwebtoken.js'
 
 export const registerController = async (req, res) => {
   const { userName, email, password } = req.body
@@ -18,7 +19,9 @@ export const registerController = async (req, res) => {
 
   try {
     // throw new Error('FORZADO')
-    await newUser.save()
+    const savedUser = await newUser.save()
+    const token = await createAccessToken({ id: savedUser._id })
+    res.cookie('token', token)
     res.status(200).json({
       id: newUser.id,
       userName: newUser.userName,
