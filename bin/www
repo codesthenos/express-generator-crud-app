@@ -5,8 +5,10 @@
  */
 
 import { createServer } from 'node:http'
-import app from '../app.js'
 import debugLib from 'debug'
+
+import app from '../app.js'
+import connectDB from '../dbConnexion.js'
 
 const debug = debugLib('npx-express-generator-ejs:server')
 
@@ -26,6 +28,9 @@ const server = createServer(app)
 /**
  * Listen on provided port, on all network interfaces.
  */
+
+// Connect database just before listening
+connectDB()
 
 server.listen(port)
 server.on('error', onError)
