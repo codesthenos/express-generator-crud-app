@@ -1,7 +1,5 @@
 import mongoose from 'mongoose'
-import debugLib from 'debug'
-
-const debug = debugLib('npx-express-generator-ejs:server')
+import debug from './debugFunction.js'
 const DATABASE_NAME = 'CRUD_API'
 
 const connectDB = async () => {
