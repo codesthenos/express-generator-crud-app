@@ -6,6 +6,7 @@ import logger from 'morgan'
 
 import indexRouter from './routes/index.js'
 import usersRouter from './routes/users.js'
+import authRouter from './routes/auth.routes.js'
 
 const app = express()
 
@@ -27,6 +28,9 @@ app.use(cookieParser())
 app.use(express.static(join(import.meta.dirname, 'public')))
 
 // Routing
+
+// auth
+app.use('/api', authRouter)
 
 // homepage
 app.use('/', indexRouter)
