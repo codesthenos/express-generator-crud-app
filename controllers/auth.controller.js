@@ -6,7 +6,7 @@ import createAccessToken from '../lib/jwebtoken.js'
 
 export const registerController = async (req, res) => {
   const { userName, email, password } = req.body
-  // debug('FIELDS:', '\n', 'username: ', userName, '\n', 'email:', email, '\n', 'password: ', password)
+  debug('FIELDS:', '\n', 'userName: ', userName, '\n', 'email:', email, '\n', 'password: ', password)
 
   // hash the password before sending to the database
   const hashedPassword = await bcrypt.hash(password, 10)
